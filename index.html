@@ -1,10 +1,60 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="dark">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>portfolio-26</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Mohammed Mubasshir Rashid — Full-stack developer</title>
+    <meta
+      name="description"
+      content="Full-stack developer in Raipur, India. I build MERN applications, and I've run a live Shopify storefront with 1,000+ products. Currently looking for an entry-level role."
+    />
+    <link rel="canonical" href="https://mubasshir.vercel.app/" />
+    <meta name="author" content="Mohammed Mubasshir Rashid" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://mubasshir.vercel.app/" />
+    <meta property="og:title" content="Mohammed Mubasshir Rashid — Full-stack developer" />
+    <meta
+      property="og:description"
+      content="MERN applications, and a live Shopify storefront with 1,000+ products behind them. Based in Raipur, India."
+    />
+    <meta property="og:image" content="https://mubasshir.vercel.app/og.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Mohammed Mubasshir Rashid — full-stack developer, Raipur, India." />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Mohammed Mubasshir Rashid — Full-stack developer" />
+    <meta
+      name="twitter:description"
+      content="MERN applications, and a live Shopify storefront with 1,000+ products behind them."
+    />
+    <meta name="twitter:image" content="https://mubasshir.vercel.app/og.png" />
+
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <meta name="theme-color" content="#101214" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#FAFAFA" media="(prefers-color-scheme: light)" />
+
+    <link
+      rel="preload"
+      href="/fonts/archivo-variable-latin.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+
+    <script>
+      (function () {
+        try {
+          var stored = localStorage.getItem('theme')
+          if (stored === 'light' || stored === 'dark') {
+            document.documentElement.dataset.theme = stored
+          }
+        } catch (e) {
+          
+        }
+      })()
+    </script>
   </head>
   <body>
     <div id="root"></div>
