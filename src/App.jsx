@@ -2,6 +2,7 @@ import { LazyMotion, domAnimation } from 'motion/react'
 import { Nav } from './components/Nav'
 import { Hero } from './components/Hero'
 import { ProjectGrid } from './components/ProjectGrid'
+import { Skills } from './components/Skills'
 
 export default function App() {
   return (
@@ -9,6 +10,7 @@ export default function App() {
       <Nav />
       <Hero />
       <ProjectGrid />
+      <Skills />
     </LazyMotion>
   )
 }
