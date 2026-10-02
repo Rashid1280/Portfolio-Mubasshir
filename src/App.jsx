@@ -4,6 +4,7 @@ import { Hero } from './components/Hero'
 import { ProjectGrid } from './components/ProjectGrid'
 import { Skills } from './components/Skills'
 import { Experience } from './components/Experience'
+import { Contact } from './components/Contact'
 
 export default function App() {
   return (
@@ -13,6 +14,7 @@ export default function App() {
       <ProjectGrid />
       <Skills />
       <Experience />
+      <Contact />
     </LazyMotion>
   )
 }
