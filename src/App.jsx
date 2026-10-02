@@ -3,6 +3,7 @@ import { Nav } from './components/Nav'
 import { Hero } from './components/Hero'
 import { ProjectGrid } from './components/ProjectGrid'
 import { Skills } from './components/Skills'
+import { Experience } from './components/Experience'
 
 export default function App() {
   return (
@@ -11,6 +12,7 @@ export default function App() {
       <Hero />
       <ProjectGrid />
       <Skills />
+      <Experience />
     </LazyMotion>
   )
 }
