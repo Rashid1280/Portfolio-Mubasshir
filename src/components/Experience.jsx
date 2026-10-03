@@ -6,7 +6,7 @@ export function Experience() {
     <section
       id="experience"
       aria-labelledby="experience-heading"
-      className="mx-auto max-w-shell scroll-mt-20 px-5 py-16 sm:px-8 sm:py-24"
+      className="mx-auto max-w-shell scroll-mt-20 px-5 py-5 sm:px-8 sm:py-8"
     >
       <SectionHeading id="experience-heading">Experience</SectionHeading>
 

@@ -18,7 +18,7 @@ export function ProjectGrid() {
     <section
       id="work"
       aria-labelledby="work-heading"
-      className="mx-auto max-w-shell scroll-mt-20 px-5 pb-16 pt-10 sm:px-8 sm:pb-24 sm:pt-14"
+      className="mx-auto max-w-shell scroll-mt-20 px-5 pb-5 pt-10 sm:px-8 sm:pb-8 sm:pt-14"
     >
       <SectionHeading id="work-heading">Work</SectionHeading>
 

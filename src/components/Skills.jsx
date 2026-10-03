@@ -6,7 +6,7 @@ export function Skills() {
     <section
       id="skills"
       aria-labelledby="skills-heading"
-      className="mx-auto max-w-shell scroll-mt-20 px-5 py-16 sm:px-8 sm:py-24"
+      className="mx-auto max-w-shell scroll-mt-20 px-5 py-5 sm:px-8 sm:py-8"
     >
       <SectionHeading id="skills-heading" aside="By area, not by year">
         Skills

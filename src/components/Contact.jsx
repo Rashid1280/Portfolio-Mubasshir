@@ -8,7 +8,7 @@ export function Contact() {
     <section
       id="contact"
       aria-labelledby="contact-heading"
-      className="mx-auto max-w-shell scroll-mt-20 px-5 pt-16 pb-32 sm:px-8 sm:pt-24 md:pb-24"
+      className="mx-auto max-w-shell scroll-mt-20 px-5 pt-10 pb-32 sm:px-8 sm:pt-5 md:pb-24"
     >
       <SectionHeading id="contact-heading">Contact</SectionHeading>
 
