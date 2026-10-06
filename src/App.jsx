@@ -1,22 +1,45 @@
+import { useEffect } from 'react'
+import { Route, Routes, useLocation } from 'react-router-dom'
 import { LazyMotion, domAnimation } from 'motion/react'
 import { Nav } from './components/Nav'
-import { Hero } from './components/Hero'
-import { ProjectGrid } from './components/ProjectGrid'
-import { Skills } from './components/Skills'
-import { Experience } from './components/Experience'
-import { Contact } from './components/Contact'
-import { BottomNav } from './components/BottomNav'
+import { Home } from './pages/Home'
+import { CaseStudy } from './pages/CaseStudy'
 
 export default function App() {
   return (
     <LazyMotion features={domAnimation} strict>
+      <ScrollBehaviour />
+
+      <a href="#main" className="skip-link">
+        Skip to content
+      </a>
+
       <Nav />
-      <Hero />
-      <ProjectGrid />
-      <Skills />
-      <Experience />
-      <Contact />
-      <BottomNav />
+
+      <main id="main">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/work/:slug" element={<CaseStudy />} />
+          <Route path="*" element={<Home />} />
+        </Routes>
+      </main>
     </LazyMotion>
   )
+}
+
+function ScrollBehaviour() {
+  const { pathname, hash } = useLocation()
+
+  useEffect(() => {
+    if (hash) {
+      const target = document.querySelector(hash)
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' })
+        return
+      }
+    }
+    window.scrollTo(0, 0)
+  }, [pathname, hash])
+
+  return null
 }
