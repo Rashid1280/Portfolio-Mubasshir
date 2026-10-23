@@ -1,4 +1,4 @@
-import { Link, useLocation } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { site } from '../data/site'
 import { useTheme } from '../hooks/useTheme'
 import { navSections } from './navSections'
@@ -8,6 +8,7 @@ export function Nav() {
   const { theme, toggle } = useTheme()
   const { pathname } = useLocation()
   const onHome = pathname === '/'
+  const navigate = useNavigate()
 
   return (
     <header className="sticky top-0 z-40 border-b border-line bg-bg/85 backdrop-blur-sm">
@@ -17,6 +18,10 @@ export function Nav() {
       >
         <Link
           to="/"
+          aria-label={`${site.shortName} — home`}
+          onClick={() => {
+            if (onHome) window.scrollTo({ top: 0, behavior: 'smooth' })
+          }}
           className="flex items-center gap-2.5 text-spec font-semibold tracking-tight"
         >
           <Mark />
@@ -28,6 +33,12 @@ export function Nav() {
             <li key={href}>
               <a
                 href={onHome ? href : `/${href}`}
+                onClick={(e) => {
+                  if (!onHome) {
+                    e.preventDefault()
+                    navigate(`/${href}`)
+                  }
+                }}
                 className="text-[0.95rem] font-medium text-muted transition-colors duration-150 ease-out hover:text-text"
               >
                 {label}

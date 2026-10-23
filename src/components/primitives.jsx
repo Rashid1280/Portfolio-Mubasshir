@@ -58,7 +58,7 @@ export function Button({ href, children, variant = 'solid', external = false, cl
 
   const styles =
     variant === 'solid'
-      ? 'bg-accent text-white hover:bg-accent/90'
+      ? 'bg-accent text-on-accent hover:bg-accent/90'
       : 'border border-line text-text hover:border-accent hover:text-accent'
 
   return (

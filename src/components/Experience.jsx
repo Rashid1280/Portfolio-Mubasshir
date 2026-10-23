@@ -43,7 +43,7 @@ export function Experience() {
                 </ul>
 
                 {role.footnote && (
-                  <p className="mt-5 text-spec text-muted/80">{role.footnote}</p>
+                  <p className="mt-5 text-spec text-muted">{role.footnote}</p>
                 )}
               </div>
 
@@ -52,7 +52,7 @@ export function Experience() {
                 items={[
                   { label: 'Period', value: role.period },
                   { label: 'Company', value: role.company },
-                  { label: 'Platform', value: 'Shopify' },
+                  { label: 'Platform', value: role.platform },
                 ]}
               />
             </div>

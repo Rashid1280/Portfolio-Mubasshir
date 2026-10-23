@@ -5,6 +5,7 @@ import { Nav } from './components/Nav'
 import { Home } from './pages/Home'
 import { CaseStudy } from './pages/CaseStudy'
 
+
 export default function App() {
   return (
     <LazyMotion features={domAnimation} strict>
