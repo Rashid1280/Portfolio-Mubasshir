@@ -1,10 +1,9 @@
 import { useEffect } from 'react'
-import { Route, Routes, useLocation } from 'react-router-dom'
+import { Navigate, Route, Routes, useLocation } from 'react-router-dom'
 import { LazyMotion, domAnimation } from 'motion/react'
 import { Nav } from './components/Nav'
 import { Home } from './pages/Home'
 import { CaseStudy } from './pages/CaseStudy'
-
 
 export default function App() {
   return (
@@ -21,7 +20,7 @@ export default function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/work/:slug" element={<CaseStudy />} />
-          <Route path="*" element={<Home />} />
+          <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </main>
     </LazyMotion>
