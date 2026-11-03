@@ -1,28 +1,28 @@
 @font-face {
-  font-family: 'Archivo Variable';
+  font-family: "Archivo Variable";
   font-weight: 100 900;
   font-display: swap;
-  src: url('/fonts/archivo-variable-latin.woff2');
+  src: url("/fonts/archivo-variable-latin.woff2");
 }
 
-:root[data-theme='dark'] {
+:root[data-theme="dark"] {
   --bg: 16 18 20;
   --surface: 23 26 29;
   --line: 37 41 46;
   --text: 237 239 241;
   --muted: 155 163 171;
   --accent: 79 125 255;
-    --on-accent: 16 18 20;
+  --on-accent: 16 18 20;
 }
 
-:root[data-theme='light'] {
+:root[data-theme="light"] {
   --bg: 250 250 250;
   --surface: 255 255 255;
   --line: 229 231 235;
   --text: 17 24 39;
   --muted: 107 114 128;
   --accent: 79 70 229;
-   --on-accent: 255 255 255;
+  --on-accent: 255 255 255;
 }
 
 @tailwind base;
@@ -30,7 +30,9 @@
 @tailwind utilities;
 
 @layer base {
-  html { scroll-behavior: smooth; }
+  html {
+    scroll-behavior: smooth;
+  }
   body {
     @apply bg-bg text-text font-sans antialiased;
     font-variant-numeric: tabular-nums;
@@ -42,12 +44,16 @@
     border-radius: 2px;
   }
 
-  h1, h2, h3 {
+  h1,
+  h2,
+  h3 {
     text-wrap: balance;
   }
 
   @media (prefers-reduced-motion: reduce) {
-    *, *::before, *::after {
+    *,
+    *::before,
+    *::after {
       animation-duration: 0.01ms !important;
       transition-duration: 0.01ms !important;
       scroll-behavior: auto !important;

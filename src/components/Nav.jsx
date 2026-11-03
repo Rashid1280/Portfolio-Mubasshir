@@ -1,14 +1,14 @@
-import { Link, useLocation, useNavigate } from 'react-router-dom'
-import { site } from '../data/site'
-import { useTheme } from '../hooks/useTheme'
-import { navSections } from './navSections'
-import { Icon } from './Icon'
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { site } from "../data/site";
+import { useTheme } from "../hooks/useTheme";
+import { navSections } from "./navSections";
+import { Icon } from "./Icon";
 
 export function Nav() {
-  const { theme, toggle } = useTheme()
-  const { pathname } = useLocation()
-  const onHome = pathname === '/'
-  const navigate = useNavigate()
+  const { theme, toggle } = useTheme();
+  const { pathname } = useLocation();
+  const onHome = pathname === "/";
+  const navigate = useNavigate();
 
   return (
     <header className="sticky top-0 z-40 border-b border-line bg-bg/85 backdrop-blur-sm">
@@ -20,7 +20,7 @@ export function Nav() {
           to="/"
           aria-label={`${site.shortName} — home`}
           onClick={() => {
-            if (onHome) window.scrollTo({ top: 0, behavior: 'smooth' })
+            if (onHome) window.scrollTo({ top: 0, behavior: "smooth" });
           }}
           className="flex items-center gap-2.5 text-spec font-semibold tracking-tight"
         >
@@ -35,8 +35,8 @@ export function Nav() {
                 href={onHome ? href : `/${href}`}
                 onClick={(e) => {
                   if (!onHome) {
-                    e.preventDefault()
-                    navigate(`/${href}`)
+                    e.preventDefault();
+                    navigate(`/${href}`);
                   }
                 }}
                 className="text-[0.95rem] font-medium text-muted transition-colors duration-150 ease-out hover:text-text"
@@ -50,16 +50,16 @@ export function Nav() {
         <button
           type="button"
           onClick={toggle}
-          aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} theme`}
+          aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} theme`}
           className="ml-auto flex h-8 w-8 items-center justify-center rounded-control
                      border border-line text-muted transition-colors duration-150 ease-out
                      hover:border-accent hover:text-accent md:ml-0"
         >
-          <Icon name={theme === 'dark' ? 'sun' : 'moon'} size={15} />
+          <Icon name={theme === "dark" ? "sun" : "moon"} size={15} />
         </button>
       </nav>
     </header>
-  )
+  );
 }
 
 function Mark() {
@@ -87,5 +87,5 @@ function Mark() {
         strokeLinejoin="miter"
       />
     </svg>
-  )
+  );
 }

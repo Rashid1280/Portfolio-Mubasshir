@@ -1,5 +1,5 @@
-import { skillGroups } from '../data/skills'
-import { SectionHeading } from './primitives'
+import { skillGroups } from "../data/skills";
+import { SectionHeading } from "./primitives";
 
 export function Skills() {
   return (
@@ -36,5 +36,5 @@ export function Skills() {
         ))}
       </div>
     </section>
-  )
+  );
 }

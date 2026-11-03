@@ -1,5 +1,5 @@
-import { experience } from '../data/experience'
-import { SectionHeading, SpecRow } from './primitives'
+import { experience } from "../data/experience";
+import { SectionHeading, SpecRow } from "./primitives";
 
 export function Experience() {
   return (
@@ -50,9 +50,9 @@ export function Experience() {
               <SpecRow
                 className="h-fit"
                 items={[
-                  { label: 'Period', value: role.period },
-                  { label: 'Company', value: role.company },
-                  { label: 'Platform', value: role.platform },
+                  { label: "Period", value: role.period },
+                  { label: "Company", value: role.company },
+                  { label: "Platform", value: role.platform },
                 ]}
               />
             </div>
@@ -60,5 +60,5 @@ export function Experience() {
         ))}
       </div>
     </section>
-  )
+  );
 }

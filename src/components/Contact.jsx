@@ -1,7 +1,7 @@
-import { site } from '../data/site'
-import { socials } from '../data/social'
-import { Icon } from './Icon'
-import { Button, SectionHeading } from './primitives'
+import { site } from "../data/site";
+import { socials } from "../data/social";
+import { Icon } from "./Icon";
+import { Button, SectionHeading } from "./primitives";
 
 export function Contact() {
   return (
@@ -26,9 +26,9 @@ export function Contact() {
               <li key={s.label}>
                 <a
                   href={s.href}
-                  {...(s.href.startsWith('mailto:')
+                  {...(s.href.startsWith("mailto:")
                     ? {}
-                    : { target: '_blank', rel: 'noopener noreferrer' })}
+                    : { target: "_blank", rel: "noopener noreferrer" })}
                   className="inline-flex items-center gap-2 text-spec text-muted
                              transition-colors duration-150 ease-out hover:text-accent"
                 >
@@ -48,5 +48,5 @@ export function Contact() {
         </div>
       </div>
     </section>
-  )
+  );
 }

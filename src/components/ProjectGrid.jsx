@@ -1,18 +1,18 @@
-import { Link } from 'react-router-dom'
-import { projects } from '../data/projects'
-import { Icon, StatusDot } from './Icon'
-import { Reveal, SectionHeading, SpecRow, TextLink } from './primitives'
+import { Link } from "react-router-dom";
+import { projects } from "../data/projects";
+import { Icon, StatusDot } from "./Icon";
+import { Reveal, SectionHeading, SpecRow, TextLink } from "./primitives";
 
 const spanClasses = {
-  large: 'sm:col-span-2',
-  wide: 'sm:col-span-2',
-  small: '',
-}
+  large: "sm:col-span-2",
+  wide: "sm:col-span-2",
+  small: "",
+};
 
 export function ProjectGrid() {
   const ordered = [...projects].sort(
-    (a, b) => Number(Boolean(b.featured)) - Number(Boolean(a.featured))
-  )
+    (a, b) => Number(Boolean(b.featured)) - Number(Boolean(a.featured)),
+  );
 
   return (
     <section
@@ -24,35 +24,51 @@ export function ProjectGrid() {
 
       <ul className="grid gap-px bg-line sm:grid-cols-2">
         {ordered.map((project, i) => {
-          const span = project.span ?? 'small'
+          const span = project.span ?? "small";
           return (
-            <li key={project.slug} className={`flex ${spanClasses[span] ?? ''}`}>
+            <li
+              key={project.slug}
+              className={`flex ${spanClasses[span] ?? ""}`}
+            >
               <Reveal delay={Math.min(i, 3) * 0.05} className="w-full">
-                <ProjectTile project={project} wide={span !== 'small'} />
+                <ProjectTile project={project} wide={span !== "small"} />
               </Reveal>
             </li>
-          )
+          );
         })}
       </ul>
     </section>
-  )
+  );
 }
 
 function ProjectTile({ project, wide }) {
-  const { name, problem, stack, year, role, status, links, cover, note, caseStudy, slug } =
-    project
+  const {
+    name,
+    problem,
+    stack,
+    year,
+    role,
+    status,
+    links,
+    cover,
+    note,
+    caseStudy,
+    slug,
+  } = project;
 
   return (
     <article
       className={`group flex h-full flex-col bg-bg p-6 transition-colors duration-200
                   ease-out hover:bg-surface sm:p-7 ${
-                    wide ? 'lg:grid lg:grid-cols-[1.15fr_1fr] lg:items-start lg:gap-8' : ''
+                    wide
+                      ? "lg:grid lg:grid-cols-[1.15fr_1fr] lg:items-start lg:gap-8"
+                      : ""
                   }`}
     >
       {cover && (
         <div
           className={`overflow-hidden rounded-tile border border-line ${
-            wide ? 'mb-6 lg:mb-0' : 'mb-6'
+            wide ? "mb-6 lg:mb-0" : "mb-6"
           }`}
         >
           <img
@@ -61,8 +77,8 @@ function ProjectTile({ project, wide }) {
             width={cover.width}
             height={cover.height}
 
-            loading={wide ? 'eager' : 'lazy'}
-            fetchPriority={wide ? 'high' : 'auto'}
+            loading={wide ? "eager" : "lazy"}
+            fetchPriority={wide ? "high" : "auto"}
             decoding="async"
 
             className="h-auto w-full transition-transform duration-500 ease-out
@@ -73,7 +89,9 @@ function ProjectTile({ project, wide }) {
 
       <div className="flex h-full flex-col">
         <div className="mb-3 flex items-start justify-between gap-4">
-          <h3 className={`font-extrabold tracking-tight ${wide ? 'text-title' : 'text-xl'}`}>
+          <h3
+            className={`font-extrabold tracking-tight ${wide ? "text-title" : "text-xl"}`}
+          >
             {name}
           </h3>
           <span className="mt-1 shrink-0">
@@ -83,7 +101,7 @@ function ProjectTile({ project, wide }) {
 
         <p
           className={`max-w-prose text-muted ${
-            wide ? 'text-lead' : 'text-[0.9375rem] leading-relaxed'
+            wide ? "text-lead" : "text-[0.9375rem] leading-relaxed"
           }`}
         >
           {problem}
@@ -92,15 +110,17 @@ function ProjectTile({ project, wide }) {
         <div className="mt-6">
           <SpecRow
             items={[
-              { label: 'Stack', value: stack.join(' · ') },
-              { label: 'Role', value: role },
-              { label: 'Year', value: year },
+              { label: "Stack", value: stack.join(" · ") },
+              { label: "Role", value: role },
+              { label: "Year", value: year },
             ]}
           />
         </div>
 
         {note && (
-          <p className="mt-4 border-l-2 border-line pl-3 text-spec text-muted">{note}</p>
+          <p className="mt-4 border-l-2 border-line pl-3 text-spec text-muted">
+            {note}
+          </p>
         )}
 
         <div className="mt-auto flex flex-wrap items-center gap-x-5 gap-y-2 pt-6 text-spec">
@@ -135,5 +155,5 @@ function ProjectTile({ project, wide }) {
         </div>
       </div>
     </article>
-  )
+  );
 }

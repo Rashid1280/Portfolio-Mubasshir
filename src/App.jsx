@@ -1,9 +1,9 @@
-import { useEffect } from 'react'
-import { Navigate, Route, Routes, useLocation } from 'react-router-dom'
-import { LazyMotion, domAnimation } from 'motion/react'
-import { Nav } from './components/Nav'
-import { Home } from './pages/Home'
-import { CaseStudy } from './pages/CaseStudy'
+import { useEffect } from "react";
+import { Navigate, Route, Routes, useLocation } from "react-router-dom";
+import { LazyMotion, domAnimation } from "motion/react";
+import { Nav } from "./components/Nav";
+import { Home } from "./pages/Home";
+import { CaseStudy } from "./pages/CaseStudy";
 
 export default function App() {
   return (
@@ -24,22 +24,22 @@ export default function App() {
         </Routes>
       </main>
     </LazyMotion>
-  )
+  );
 }
 
 function ScrollBehaviour() {
-  const { pathname, hash } = useLocation()
+  const { pathname, hash } = useLocation();
 
   useEffect(() => {
     if (hash) {
-      const target = document.querySelector(hash)
+      const target = document.querySelector(hash);
       if (target) {
-        target.scrollIntoView({ behavior: 'smooth', block: 'start' })
-        return
+        target.scrollIntoView({ behavior: "smooth", block: "start" });
+        return;
       }
     }
-    window.scrollTo(0, 0)
-  }, [pathname, hash])
+    window.scrollTo(0, 0);
+  }, [pathname, hash]);
 
-  return null
+  return null;
 }

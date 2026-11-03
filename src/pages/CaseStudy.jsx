@@ -1,16 +1,16 @@
-import { Link, Navigate, useParams } from 'react-router-dom'
-import { getProjectBySlug } from '../data/projects'
-import { useDocumentMeta } from '../hooks/useDocumentMeta'
-import { Icon, StatusDot } from '../components/Icon'
-import { Button, SpecRow } from '../components/primitives'
+import { Link, Navigate, useParams } from "react-router-dom";
+import { getProjectBySlug } from "../data/projects";
+import { useDocumentMeta } from "../hooks/useDocumentMeta";
+import { Icon, StatusDot } from "../components/Icon";
+import { Button, SpecRow } from "../components/primitives";
 
 export function CaseStudy() {
-  const { slug } = useParams()
-  const project = getProjectBySlug(slug)
+  const { slug } = useParams();
+  const project = getProjectBySlug(slug);
 
-  if (!project?.caseStudy) return <Navigate to="/#work" replace />
+  if (!project?.caseStudy) return <Navigate to="/#work" replace />;
 
-  const { name, stack, year, role, status, links, note, caseStudy } = project
+  const { name, stack, year, role, status, links, note, caseStudy } = project;
 
   return (
     <article className="mx-auto max-w-shell px-5 pb-24 pt-12 sm:px-8 sm:pt-16">
@@ -30,7 +30,9 @@ export function CaseStudy() {
           <StatusDot status={status} />
         </div>
 
-        <p className="mt-6 max-w-prose text-lead text-muted">{caseStudy.summary}</p>
+        <p className="mt-6 max-w-prose text-lead text-muted">
+          {caseStudy.summary}
+        </p>
 
         <div className="mt-10 grid gap-10 lg:grid-cols-[minmax(0,1fr)_18rem]">
           <div className="flex flex-wrap items-center gap-3">
@@ -49,9 +51,9 @@ export function CaseStudy() {
 
           <SpecRow
             items={[
-              { label: 'Stack', value: stack.join(' · ') },
-              { label: 'Role', value: role },
-              { label: 'Year', value: year },
+              { label: "Stack", value: stack.join(" · ") },
+              { label: "Role", value: role },
+              { label: "Year", value: year },
             ]}
           />
         </div>
@@ -78,7 +80,7 @@ export function CaseStudy() {
               <li key={decision.title} className="bg-bg p-6 sm:p-7">
                 <div className="flex gap-5">
                   <span className="mt-1 shrink-0 text-spec text-muted">
-                    {String(i + 1).padStart(2, '0')}
+                    {String(i + 1).padStart(2, "0")}
                   </span>
                   <div>
                     <h3 className="text-lg font-extrabold tracking-tight">
@@ -121,11 +123,11 @@ export function CaseStudy() {
             {caseStudy.challenge.title}
           </h3>
           {caseStudy.challenge.body.map((line, i) =>
-            line === '' ? (
+            line === "" ? (
               <span key={`gap-${i}`} className="block h-2" />
             ) : (
               <p key={line}>{line}</p>
-            )
+            ),
           )}
         </Section>
       )}
@@ -138,7 +140,7 @@ export function CaseStudy() {
         </Section>
       )}
     </article>
-  )
+  );
 }
 
 function Section({ heading, children, prose = true }) {
@@ -147,17 +149,23 @@ function Section({ heading, children, prose = true }) {
       <h2 className="border-t border-line pt-5 text-title font-extrabold">
         {heading}
       </h2>
-      <div className={prose ? 'mt-6 max-w-prose space-y-4 leading-relaxed text-muted' : 'mt-6'}>
+      <div
+        className={
+          prose
+            ? "mt-6 max-w-prose space-y-4 leading-relaxed text-muted"
+            : "mt-6"
+        }
+      >
         {children}
       </div>
     </section>
-  )
+  );
 }
 
 function Meta({ name, summary }) {
   useDocumentMeta({
     title: `${name} — case study · Mohammed Mubasshir Rashid`,
     description: summary,
-  })
-  return null
+  });
+  return null;
 }

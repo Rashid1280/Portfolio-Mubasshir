@@ -1,14 +1,14 @@
-import { m } from 'motion/react'
-import { site } from '../data/site'
-import { socials } from '../data/social'
-import { featuredProject } from '../data/projects'
-import { useReducedMotion } from '../hooks/useReducedMotion'
-import { Icon } from './Icon'
-import { Button, SpecRow } from './primitives'
+import { m } from "motion/react";
+import { site } from "../data/site";
+import { socials } from "../data/social";
+import { featuredProject } from "../data/projects";
+import { useReducedMotion } from "../hooks/useReducedMotion";
+import { Icon } from "./Icon";
+import { Button, SpecRow } from "./primitives";
 
 export function Hero() {
-  const reduced = useReducedMotion()
-  const primaryLinks = socials.filter((s) => s.primary)
+  const reduced = useReducedMotion();
+  const primaryLinks = socials.filter((s) => s.primary);
 
   const stagger = (i) =>
     reduced
@@ -21,7 +21,7 @@ export function Hero() {
             delay: 0.08 + i * 0.04,
             ease: [0.2, 0.8, 0.2, 1],
           },
-        }
+        };
 
   return (
     <section
@@ -37,21 +37,27 @@ export function Hero() {
             {site.name}
           </h1>
 
-          <m.p {...stagger(0)} className="mt-7 max-w-prose text-lead text-muted">
+          <m.p
+            {...stagger(0)}
+            className="mt-7 max-w-prose text-lead text-muted"
+          >
             {site.positioning}
           </m.p>
 
           <m.div {...stagger(1)} className="mt-10 max-w-lg">
             <SpecRow
               items={[
-                { label: 'Role', value: site.role },
-                { label: 'Based', value: site.location },
-                { label: 'Status', value: site.availability },
+                { label: "Role", value: site.role },
+                { label: "Based", value: site.location },
+                { label: "Status", value: site.availability },
               ]}
             />
           </m.div>
 
-          <m.div {...stagger(2)} className="mt-10 flex flex-wrap items-center gap-3">
+          <m.div
+            {...stagger(2)}
+            className="mt-10 flex flex-wrap items-center gap-3"
+          >
             <Button href="#work">See the work</Button>
             <Button href={site.resume.href} variant="ghost" external>
               {site.resume.label}
@@ -63,9 +69,9 @@ export function Hero() {
                   <a
                     href={s.href}
                     aria-label={s.label}
-                    {...(s.href.startsWith('mailto:')
+                    {...(s.href.startsWith("mailto:")
                       ? {}
-                      : { target: '_blank', rel: 'noopener noreferrer' })}
+                      : { target: "_blank", rel: "noopener noreferrer" })}
                     className="flex h-9 w-9 items-center justify-center rounded-control
                                text-muted transition-colors duration-150 ease-out
                                hover:text-accent"
@@ -81,12 +87,12 @@ export function Hero() {
         <TechStackPanel />
       </div>
     </section>
-  )
+  );
 }
 
 function TechStackPanel() {
-  const reduced = useReducedMotion()
-  const Wrapper = reduced ? 'div' : m.div
+  const reduced = useReducedMotion();
+  const Wrapper = reduced ? "div" : m.div;
 
   const motionProps = reduced
     ? {}
@@ -94,7 +100,7 @@ function TechStackPanel() {
         initial: { opacity: 0, x: 12 },
         animate: { opacity: 1, x: 0 },
         transition: { duration: 0.45, delay: 0.18, ease: [0.2, 0.8, 0.2, 1] },
-      }
+      };
 
   return (
     <Wrapper
@@ -115,5 +121,5 @@ function TechStackPanel() {
         ))}
       </ul>
     </Wrapper>
-  )
+  );
 }
