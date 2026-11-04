@@ -15,7 +15,7 @@ export const projects = [
       repo: "https://github.com/Rashid1280/nearaiims",
     },
     cover: {
-      src: "/images/nearaiims-cover.webp",
+      src: "/images/nearaiims.webp",
       alt: "NearAIIMS home page showing the search panel and a featured property listing.",
       width: 1600,
       height: 759,
@@ -102,7 +102,7 @@ export const projects = [
       repo: "https://github.com/Rashid1280/url-shortener",
     },
     cover: {
-      src: "/images/url_cover.webp",
+      src: "/images/url-shortener.webp",
       alt: "URL-Shortener",
       width: 1000,
       height: 518,
@@ -130,27 +130,6 @@ export const projects = [
       height: 518,
     },
     note: "A static directory plotted on an embedded map — no live geolocation or distance ranking.",
-  },
-
-  {
-    slug: "rental-v1",
-    name: "Short-Term Rental Service (v1)",
-    problem:
-      "The first attempt at the NearAIIMS idea — server-rendered, no auth, kept here as the before half of a before-and-after.",
-    year: "2025",
-    role: "Solo · full-stack",
-    status: "archived",
-    span: "small",
-    stack: ["Node.js", "Express", "MongoDB", "Bootstrap"],
-    links: {
-      repo: "https://github.com/Rashid1280/short-term-rental-service",
-    },
-    cover: {
-      src: "/images/rental-v1-cover.webp",
-      alt: "The original rental service interface, built with Bootstrap.",
-      width: 1000,
-      height: 516,
-    },
   },
 ];
 
