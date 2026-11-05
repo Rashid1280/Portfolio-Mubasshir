@@ -1,18 +1,8 @@
-import { Link } from "react-router-dom";
 import { projects } from "../data/projects";
 import { Icon, StatusDot } from "./Icon";
 import { SectionHeading, SpecRow, TextLink } from "./primitives";
-const spanClasses = {
-  large: "sm:col-span-2",
-  wide: "sm:col-span-2",
-  small: "",
-};
 
 export function ProjectGrid() {
-  const ordered = [...projects].sort(
-    (a, b) => Number(Boolean(b.featured)) - Number(Boolean(a.featured)),
-  );
-
   return (
     <section
       id="work"
@@ -22,36 +12,22 @@ export function ProjectGrid() {
       <SectionHeading id="work-heading">Work</SectionHeading>
 
       <ul className="grid gap-px bg-line sm:grid-cols-2">
-        {ordered.map((project) => {
-          const span = project.span ?? "small";
-          return (
-            <li
-              key={project.slug}
-              className={`flex ${spanClasses[span] ?? ""}`}
-            >
-              <ProjectTile project={project} wide={span !== "small"} />
-            </li>
-          );
-        })}
+        {projects.map((project) => (
+          <li
+            key={project.slug}
+            className={`flex ${project.featured ? "sm:col-span-2" : ""}`}
+          >
+            <ProjectTile project={project} wide={Boolean(project.featured)} />
+          </li>
+        ))}
       </ul>
     </section>
   );
 }
 
 function ProjectTile({ project, wide }) {
-  const {
-    name,
-    problem,
-    stack,
-    year,
-    role,
-    status,
-    links,
-    cover,
-    note,
-    caseStudy,
-    slug,
-  } = project;
+  const { name, problem, stack, year, role, status, links, cover, note } =
+    project;
 
   return (
     <article
@@ -73,11 +49,9 @@ function ProjectTile({ project, wide }) {
             alt={cover.alt}
             width={cover.width}
             height={cover.height}
-
             loading={wide ? "eager" : "lazy"}
             fetchPriority={wide ? "high" : "auto"}
             decoding="async"
-
             className="h-auto w-full transition-transform duration-500 ease-out
                        motion-safe:group-hover:scale-[1.015]"
           />
@@ -121,33 +95,20 @@ function ProjectTile({ project, wide }) {
         )}
 
         <div className="mt-auto flex flex-wrap items-center gap-x-5 gap-y-2 pt-6 text-spec">
-          {caseStudy && (
-            <Link
-              to={`/work/${slug}`}
-              className="font-medium text-accent underline decoration-accent/40
-                         underline-offset-4 transition-colors duration-150 ease-out
-                         hover:decoration-accent"
-            >
-              Read the case study
-            </Link>
-          )}
           {links.demo && (
             <TextLink href={links.demo} external>
               Live demo
             </TextLink>
           )}
           {links.repo && (
-            <a
+            <TextLink
               href={links.repo}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 text-text underline
-                         decoration-line underline-offset-4 transition-colors
-                         duration-150 ease-out hover:text-accent hover:decoration-accent"
+              external
+              className="inline-flex items-center gap-1.5"
             >
               <Icon name="github" size={14} />
               Source
-            </a>
+            </TextLink>
           )}
         </div>
       </div>

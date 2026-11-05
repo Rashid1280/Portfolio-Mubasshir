@@ -1,13 +1,12 @@
-import { Link } from "react-router-dom";
 import { site } from "../data/site";
 import { useTheme } from "../hooks/useTheme";
 import { Icon } from "./Icon";
 
 const links = [
-  { to: "/#work", label: "Work" },
-  { to: "/#skills", label: "Skills" },
-  { to: "/#experience", label: "Experience" },
-  { to: "/#contact", label: "Contact" },
+  { href: "#work", label: "Work" },
+  { href: "#skills", label: "Skills" },
+  { href: "#experience", label: "Experience" },
+  { href: "#contact", label: "Contact" },
 ];
 
 export function Nav() {
@@ -19,25 +18,24 @@ export function Nav() {
         aria-label="Primary"
         className="mx-auto flex h-14 max-w-shell items-center gap-3 px-5 sm:gap-6 sm:px-8"
       >
-        <Link
-          to="/"
-          aria-label={`${site.shortName} — home`}
-          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+        <a
+          href="#"
+          aria-label={`${site.shortName} — back to top`}
           className="flex items-center gap-2.5 text-spec font-semibold tracking-tight"
         >
           <Mark />
           <span className="hidden sm:inline">{site.shortName}</span>
-        </Link>
+        </a>
 
         <ul className="ml-auto flex items-center gap-4 sm:gap-8">
-          {links.map(({ to, label }) => (
-            <li key={to}>
-              <Link
-                to={to}
+          {links.map(({ href, label }) => (
+            <li key={href}>
+              <a
+                href={href}
                 className="text-sm font-medium text-muted transition-colors duration-150 ease-out hover:text-text sm:text-[0.95rem]"
               >
                 {label}
-              </Link>
+              </a>
             </li>
           ))}
         </ul>
