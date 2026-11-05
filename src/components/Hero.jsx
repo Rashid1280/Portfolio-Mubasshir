@@ -1,27 +1,11 @@
-import { m } from "motion/react";
 import { site } from "../data/site";
 import { socials } from "../data/social";
 import { featuredProject } from "../data/projects";
-import { useReducedMotion } from "../hooks/useReducedMotion";
 import { Icon } from "./Icon";
 import { Button, SpecRow } from "./primitives";
 
 export function Hero() {
-  const reduced = useReducedMotion();
   const primaryLinks = socials.filter((s) => s.primary);
-
-  const stagger = (i) =>
-    reduced
-      ? {}
-      : {
-          initial: { opacity: 0, y: 8 },
-          animate: { opacity: 1, y: 0 },
-          transition: {
-            duration: 0.4,
-            delay: 0.08 + i * 0.04,
-            ease: [0.2, 0.8, 0.2, 1],
-          },
-        };
 
   return (
     <section
@@ -37,14 +21,11 @@ export function Hero() {
             {site.name}
           </h1>
 
-          <m.p
-            {...stagger(0)}
-            className="mt-7 max-w-prose text-lead text-muted"
-          >
+          <p className="mt-7 max-w-prose text-lead text-muted">
             {site.positioning}
-          </m.p>
+          </p>
 
-          <m.div {...stagger(1)} className="mt-10 max-w-lg">
+          <div className="mt-10 max-w-lg">
             <SpecRow
               items={[
                 { label: "Role", value: site.role },
@@ -52,12 +33,9 @@ export function Hero() {
                 { label: "Status", value: site.availability },
               ]}
             />
-          </m.div>
+          </div>
 
-          <m.div
-            {...stagger(2)}
-            className="mt-10 flex flex-wrap items-center gap-3"
-          >
+          <div className="mt-10 flex flex-wrap items-center gap-3">
             <Button href="#work">See the work</Button>
             <Button href={site.resume.href} variant="ghost" external>
               {site.resume.label}
@@ -81,7 +59,7 @@ export function Hero() {
                 </li>
               ))}
             </ul>
-          </m.div>
+          </div>
         </div>
 
         <TechStackPanel />
@@ -91,22 +69,8 @@ export function Hero() {
 }
 
 function TechStackPanel() {
-  const reduced = useReducedMotion();
-  const Wrapper = reduced ? "div" : m.div;
-
-  const motionProps = reduced
-    ? {}
-    : {
-        initial: { opacity: 0, x: 12 },
-        animate: { opacity: 1, x: 0 },
-        transition: { duration: 0.45, delay: 0.18, ease: [0.2, 0.8, 0.2, 1] },
-      };
-
   return (
-    <Wrapper
-      {...motionProps}
-      className="hidden lg:block lg:rounded-tile lg:border lg:border-line"
-    >
+    <div className="hidden lg:block lg:rounded-tile lg:border lg:border-line">
       <p className="border-b border-line px-6 py-4 text-spec text-muted xl:px-7">
         Tech Stack
       </p>
@@ -120,6 +84,6 @@ function TechStackPanel() {
           </li>
         ))}
       </ul>
-    </Wrapper>
+    </div>
   );
 }

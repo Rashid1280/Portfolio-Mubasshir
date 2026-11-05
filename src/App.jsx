@@ -1,13 +1,12 @@
 import { useEffect } from "react";
 import { Navigate, Route, Routes, useLocation } from "react-router-dom";
-import { LazyMotion, domAnimation } from "motion/react";
 import { Nav } from "./components/Nav";
 import { Home } from "./pages/Home";
 import { CaseStudy } from "./pages/CaseStudy";
 
 export default function App() {
   return (
-    <LazyMotion features={domAnimation} strict>
+    <>
       <ScrollBehaviour />
 
       <a href="#main" className="skip-link">
@@ -23,10 +22,12 @@ export default function App() {
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </main>
-    </LazyMotion>
+    </>
   );
 }
 
+// React Router changes the page but doesn't scroll for us, so do it here:
+// jump to the #section in the URL if there is one, otherwise go to the top.
 function ScrollBehaviour() {
   const { pathname, hash } = useLocation();
 

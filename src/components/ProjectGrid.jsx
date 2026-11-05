@@ -1,8 +1,7 @@
 import { Link } from "react-router-dom";
 import { projects } from "../data/projects";
 import { Icon, StatusDot } from "./Icon";
-import { Reveal, SectionHeading, SpecRow, TextLink } from "./primitives";
-
+import { SectionHeading, SpecRow, TextLink } from "./primitives";
 const spanClasses = {
   large: "sm:col-span-2",
   wide: "sm:col-span-2",
@@ -23,16 +22,14 @@ export function ProjectGrid() {
       <SectionHeading id="work-heading">Work</SectionHeading>
 
       <ul className="grid gap-px bg-line sm:grid-cols-2">
-        {ordered.map((project, i) => {
+        {ordered.map((project) => {
           const span = project.span ?? "small";
           return (
             <li
               key={project.slug}
               className={`flex ${spanClasses[span] ?? ""}`}
             >
-              <Reveal delay={Math.min(i, 3) * 0.05} className="w-full">
-                <ProjectTile project={project} wide={span !== "small"} />
-              </Reveal>
+              <ProjectTile project={project} wide={span !== "small"} />
             </li>
           );
         })}
@@ -58,7 +55,7 @@ function ProjectTile({ project, wide }) {
 
   return (
     <article
-      className={`group flex h-full flex-col bg-bg p-6 transition-colors duration-200
+      className={`group flex h-full w-full flex-col bg-bg p-6 transition-colors duration-200
                   ease-out hover:bg-surface sm:p-7 ${
                     wide
                       ? "lg:grid lg:grid-cols-[1.15fr_1fr] lg:items-start lg:gap-8"
