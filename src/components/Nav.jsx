@@ -1,48 +1,43 @@
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { site } from "../data/site";
 import { useTheme } from "../hooks/useTheme";
-import { navSections } from "./navSections";
 import { Icon } from "./Icon";
+
+const links = [
+  { to: "/#work", label: "Work" },
+  { to: "/#skills", label: "Skills" },
+  { to: "/#experience", label: "Experience" },
+  { to: "/#contact", label: "Contact" },
+];
 
 export function Nav() {
   const { theme, toggle } = useTheme();
-  const { pathname } = useLocation();
-  const onHome = pathname === "/";
-  const navigate = useNavigate();
 
   return (
     <header className="sticky top-0 z-40 border-b border-line bg-bg/85 backdrop-blur-sm">
       <nav
         aria-label="Primary"
-        className="mx-auto flex h-14 max-w-shell items-center gap-6 px-5 sm:px-8"
+        className="mx-auto flex h-14 max-w-shell items-center gap-3 px-5 sm:gap-6 sm:px-8"
       >
         <Link
           to="/"
           aria-label={`${site.shortName} — home`}
-          onClick={() => {
-            if (onHome) window.scrollTo({ top: 0, behavior: "smooth" });
-          }}
+          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
           className="flex items-center gap-2.5 text-spec font-semibold tracking-tight"
         >
           <Mark />
           <span className="hidden sm:inline">{site.shortName}</span>
         </Link>
 
-        <ul className="ml-auto hidden items-center gap-8 md:flex">
-          {navSections.map(({ href, label }) => (
-            <li key={href}>
-              <a
-                href={onHome ? href : `/${href}`}
-                onClick={(e) => {
-                  if (!onHome) {
-                    e.preventDefault();
-                    navigate(`/${href}`);
-                  }
-                }}
-                className="text-[0.95rem] font-medium text-muted transition-colors duration-150 ease-out hover:text-text"
+        <ul className="ml-auto flex items-center gap-4 sm:gap-8">
+          {links.map(({ to, label }) => (
+            <li key={to}>
+              <Link
+                to={to}
+                className="text-sm font-medium text-muted transition-colors duration-150 ease-out hover:text-text sm:text-[0.95rem]"
               >
                 {label}
-              </a>
+              </Link>
             </li>
           ))}
         </ul>
@@ -51,9 +46,9 @@ export function Nav() {
           type="button"
           onClick={toggle}
           aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} theme`}
-          className="ml-auto flex h-8 w-8 items-center justify-center rounded-control
+          className="flex h-8 w-8 items-center justify-center rounded-control
                      border border-line text-muted transition-colors duration-150 ease-out
-                     hover:border-accent hover:text-accent md:ml-0"
+                     hover:border-accent hover:text-accent"
         >
           <Icon name={theme === "dark" ? "sun" : "moon"} size={15} />
         </button>

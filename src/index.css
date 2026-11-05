@@ -67,11 +67,4 @@
            font-medium text-text ring-1 ring-line transition-transform duration-150
            focus-visible:translate-y-0;
   }
-
-  .no-scrollbar::-webkit-scrollbar {
-    display: none;
-  }
-  .no-scrollbar {
-    scrollbar-width: none;
-  }
 }

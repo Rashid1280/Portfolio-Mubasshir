@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 export function useTheme() {
   const [theme, setTheme] = useState(
@@ -9,7 +9,7 @@ export function useTheme() {
     document.documentElement.dataset.theme = theme;
   }, [theme]);
 
-  const toggle = useCallback(() => {
+  function toggle() {
     const next = theme === "dark" ? "light" : "dark";
     setTheme(next);
     try {
@@ -17,7 +17,7 @@ export function useTheme() {
     } catch {
       // Storage can be unavailable (private mode, blocked cookies).
     }
-  }, [theme]);
+  }
 
   return { theme, toggle };
 }
