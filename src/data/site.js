@@ -12,10 +12,4 @@ export const site = {
     href: "/Mohammed-Mubasshir-Rashid-Resume.pdf",
     label: "Résumé (PDF)",
   },
-  meta: {
-    url: "https://mubasshir.vercel.app",
-    title: "Mohammed Mubasshir Rashid — Full-stack developer",
-    description:
-      "Full-stack developer in Raipur, India. I build MERN applications, and I've run a live Shopify storefront with 1,000+ products. Currently looking for an entry-level role.",
-  },
 };

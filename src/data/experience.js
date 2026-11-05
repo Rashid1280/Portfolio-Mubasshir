@@ -4,7 +4,6 @@ export const experience = [
     role: "E-Commerce Associate",
     period: "Dec 2023 – Jul 2024",
     location: "Raipur, India",
-    highlight: true,
     platform: "Shopify",
     stat: "1,000+",
     statLabel: "products added from scratch",
@@ -17,13 +16,5 @@ export const experience = [
     ],
     footnote:
       "Started on Flipkart marketplace operations before moving to the Shopify storefront.",
-  },
-];
-
-export const education = [
-  {
-    institution: "SSIPMT, Raipur",
-    qualification: "B.Tech, Information Technology",
-    period: "Jul 2019 – Jul 2023",
   },
 ];

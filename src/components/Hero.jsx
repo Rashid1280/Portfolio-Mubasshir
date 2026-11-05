@@ -5,8 +5,6 @@ import { Icon } from "./Icon";
 import { Button, SpecRow } from "./primitives";
 
 export function Hero() {
-  const primaryLinks = socials.filter((s) => s.primary);
-
   return (
     <section
       aria-labelledby="hero-name"
@@ -42,7 +40,7 @@ export function Hero() {
             </Button>
 
             <ul className="flex items-center gap-1 sm:ml-2">
-              {primaryLinks.map((s) => (
+              {socials.map((s) => (
                 <li key={s.label}>
                   <a
                     href={s.href}

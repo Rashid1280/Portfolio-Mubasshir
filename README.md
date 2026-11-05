@@ -1,11 +1,11 @@
 # Mohammed Mubasshir Rashid — Portfolio
 
-Personal developer portfolio. React 19, Vite 8, Tailwind CSS 3, React Router 7
-and Motion. A static site: no backend, no database.
+Personal developer portfolio. React 19, Vite and Tailwind CSS 3.
+A single static page: no backend, no database, no router.
 
 ## Run it locally
 
-Requires Node.js **20.19 or newer** (or 22.12+), which is what Vite 8 needs.
+Requires Node.js **20.19 or newer** (or 22.12+).
 
 ```bash
 npm install
@@ -15,21 +15,41 @@ npm run preview   # serve the production build locally
 npm run lint      # ESLint
 ```
 
-## How the content works
+## How it works (the 60-second version)
 
-Content lives in `src/data/`. The components only display what those files
-contain, so changing the site's content never means editing a component.
+1. **Content is data.** Everything you read on the site lives in `src/data/`.
+   Components only display it, so changing content never means editing a
+   component.
+2. **One page, five sections.** `App.jsx` renders Hero → Work → Skills →
+   Experience → Contact. The nav links are plain `#section` anchors, and
+   `scroll-behavior: smooth` in `index.css` does the smooth scrolling.
+3. **One list renders the projects.** The project grid and the hero's "Tech
+   Stack" panel both read from the `projects` array.
+4. **Theme = CSS variables.** The colours are defined once in `src/index.css`
+   (one set for dark, one for light). Tailwind reads them, and the toggle in
+   the nav flips `data-theme` on `<html>` and saves the choice in
+   `localStorage`. A tiny script in `index.html` applies the saved choice
+   before the page paints, so there is no flash.
+5. **Deployed on Vercel**, which builds the site with `npm run build`.
 
-| File                     | What it controls                                             |
-| ------------------------ | ------------------------------------------------------------ |
-| `src/data/site.js`       | Name, intro line, location, availability, email, résumé link |
-| `src/data/social.js`     | GitHub / LinkedIn / email links                              |
-| `src/data/skills.js`     | The skill categories (`category` + `items`)                  |
-| `src/data/experience.js` | Work history                                                 |
-| `src/data/projects.js`   | Every project, including case study content                  |
+```
+src/
+  main.jsx            starts React
+  App.jsx             nav + the five sections
+  components/         Hero, ProjectGrid, Skills, Experience, Contact, Nav, ...
+  data/               site, social, skills, experience, projects
+  hooks/useTheme.js   the light/dark toggle logic
+```
 
-The hero's "Tech Stack" panel is not written separately. It reads the `stack`
-of the project marked `featured: true`.
+## Changing the content
+
+| File                     | What it controls                                        |
+| ------------------------ | ------------------------------------------------------- |
+| `src/data/site.js`       | Name, intro line, location, availability, email, résumé |
+| `src/data/social.js`     | GitHub / LinkedIn / email links                         |
+| `src/data/skills.js`     | The skill categories (`category` + `items`)             |
+| `src/data/experience.js` | Work history                                            |
+| `src/data/projects.js`   | Every project                                           |
 
 ### Adding a project
 
@@ -37,7 +57,7 @@ Add one object to the `projects` array in `src/data/projects.js`:
 
 ```js
 {
-  slug: 'my-new-project',          // becomes /work/my-new-project
+  slug: 'my-new-project',          // a unique id
   name: 'My New Project',
   problem: 'One sentence: what it solves, and for whom.',
   year: '2027',
@@ -57,44 +77,22 @@ Add one object to the `projects` array in `src/data/projects.js`:
 }
 ```
 
-That is all. It appears in the grid automatically. Optional fields:
+It appears in the grid automatically, in the same order as the array.
+Optional fields:
 
-- `featured: true` makes it the large tile at the top and feeds the hero's
-  Tech Stack panel. Use it on one project only.
-- `span: 'wide'` makes a normal tile full width.
+- `featured: true` makes it the large tile and feeds the hero's Tech Stack
+  panel. Use it on one project only, and keep that project first in the array.
 - `note: '...'` adds a small caveat under the details.
-- `caseStudy: { ... }` creates a page at `/work/<slug>` and adds a
-  "Read the case study" link. Every field inside is optional:
 
-  | Field           | Shown as                                                 |
-  | --------------- | -------------------------------------------------------- |
-  | `summary`       | The paragraph under the title                            |
-  | `context`       | "The problem": an array of paragraphs                    |
-  | `decisions`     | "Architecture decisions": an array of `{ title, body }`  |
-  | `gallery`       | "Interface": an array of `{ src, alt, width, height }`   |
-  | `challenge`     | "A problem worth describing": `{ title, body: [lines] }` |
-  | `retrospective` | "What I would do differently": an array of paragraphs    |
-
-See the NearAIIMS entry for a complete example. Put screenshots in
-`public/images/`, as `.webp` for small file size, and give each its real
-`width` and `height` so the page does not jump while images load.
+Put screenshots in `public/images/`, as `.webp` for small file size, and give
+each its real `width` and `height` so the page does not jump while images load.
 
 ### Adding experience
 
 Add an object to the array in `src/data/experience.js`: `company`, `role`,
 `period`, `location`, `points` (an array of bullet strings), and optionally
-`platform`, `footnote`, and `highlight: true` with `stat` / `statLabel` for the
-large number at the top of the card.
-
-## Behaviour worth knowing
-
-- Dark is the default theme. A visitor's choice is saved in the browser only
-  when they use the toggle, and applied before first paint so there is no flash.
-- All colours are CSS variables at the top of `src/index.css`, one set for dark
-  and one for light. Change a value there and it changes everywhere.
-- Below 768px the top navigation links are replaced by a fixed bar at the
-  bottom of the screen that highlights the section you are in.
-- Animations are skipped for visitors who have turned on "reduce motion".
+`platform`, `footnote`, and `stat` / `statLabel` for the large number at the
+top of the card.
 
 ## Notes
 

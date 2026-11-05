@@ -13,7 +13,7 @@ export function Experience() {
       <div className="flex flex-col gap-px bg-line">
         {experience.map((role) => (
           <article key={`${role.company}-${role.period}`} className="bg-bg">
-            {role.highlight && role.stat && (
+            {role.stat && (
               <div className="border-b border-line px-6 py-10 sm:px-7 sm:py-12">
                 <p className="text-display font-extrabold leading-none">
                   {role.stat}
