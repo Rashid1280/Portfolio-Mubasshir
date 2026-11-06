@@ -37,7 +37,6 @@ export function Button({
   children,
   variant = "solid",
   external = false,
-  className = "",
 }) {
   const externalProps = external
     ? { target: "_blank", rel: "noopener noreferrer" }
@@ -54,7 +53,7 @@ export function Button({
       {...externalProps}
       className={`inline-flex items-center gap-2 rounded-control px-4 py-2.5 text-spec
                   font-medium transition-all duration-150 ease-out
-                  active:translate-y-px ${styles} ${className}`}
+                  active:translate-y-px ${styles}`}
     >
       {children}
     </a>

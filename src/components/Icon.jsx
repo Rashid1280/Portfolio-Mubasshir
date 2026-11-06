@@ -10,7 +10,7 @@ const paths = {
 
 const strokeIcons = new Set(["sun", "moon"]);
 
-export function Icon({ name, size = 16, className = "" }) {
+export function Icon({ name, size = 16 }) {
   const d = paths[name];
   if (!d) return null;
 
@@ -23,7 +23,6 @@ export function Icon({ name, size = 16, className = "" }) {
       height={size}
       aria-hidden="true"
       focusable="false"
-      className={className}
       fill={stroke ? "none" : "currentColor"}
       stroke={stroke ? "currentColor" : "none"}
       strokeWidth={stroke ? 1.75 : 0}
