@@ -51,7 +51,6 @@ export function Experience() {
                 className="h-fit"
                 items={[
                   { label: "Period", value: role.period },
-                  { label: "Company", value: role.company },
                   { label: "Platform", value: role.platform },
                 ]}
               />
