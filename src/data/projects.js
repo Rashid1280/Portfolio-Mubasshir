@@ -3,7 +3,7 @@ export const projects = [
     slug: "nearaiims",
     name: "NearAIIMS",
     problem:
-      "Families travelling to Raipur for treatment at AIIMS need a place to stay for a few weeks, near the hospital, without a hotel budget.",
+      "Built and deployed a full-stack MERN application that helps patients and families traveling to AIIMS Raipur for extended treatment find short-term stays directly from nearby homeowners",
     year: "2026",
     role: "Solo · full-stack",
     status: "live",
@@ -25,7 +25,7 @@ export const projects = [
     slug: "URL-Shortener",
     name: "SHORTIE",
     problem:
-      "A full-stack URL shortener. Paste a long link and get a short one, with optional custom aliases, expiry, click statistics, and a QR code.",
+      "Built and deployed a full-stack URL shortener, generating unique short codes from an atomic MongoDB counter encoded in Base62, with retry handling for duplicate-code collisions",
     year: "2025",
     role: "Solo · Full-Stack",
     status: "live",
@@ -40,13 +40,13 @@ export const projects = [
       width: 1000,
       height: 518,
     },
-    note: "A URL Shortener",
+    note: "The API runs on a free Render instance, so the first request after a period of inactivity can take up to 30 seconds to wake.",
   },
   {
     slug: "ayush-locator",
     name: "AYUSH Hospital Locator",
     problem:
-      "Patients looking for Ayurveda, Yoga, Unani, Siddha or Homeopathy care have no single place to see which certified hospitals are nearby.",
+      "Patients looking for Ayurveda, Yoga, Unani, Siddha or Homeopathy care can search for hospitals nearby.",
     year: "2025",
     role: "Solo · frontend",
     status: "live",
@@ -61,7 +61,6 @@ export const projects = [
       width: 1000,
       height: 518,
     },
-    note: "A static directory plotted on an embedded map — no live geolocation or distance ranking.",
   },
 ];
 

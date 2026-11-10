@@ -8,9 +8,7 @@ export function Skills() {
       aria-labelledby="skills-heading"
       className="mx-auto max-w-shell scroll-mt-20 px-5 py-5 sm:px-8 sm:py-8"
     >
-      <SectionHeading id="skills-heading" aside="By area, not by year">
-        Skills
-      </SectionHeading>
+      <SectionHeading id="skills-heading">Skills</SectionHeading>
 
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {skillGroups.map((group) => (

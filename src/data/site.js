@@ -2,9 +2,9 @@ export const site = {
   name: "Mohammed Mubasshir Rashid",
   shortName: "Mubasshir Rashid",
   location: "Raipur, Chhattisgarh, India",
-  role: "Full-stack developer",
+  role: "Full-stack MERN developer",
   positioning:
-    "Full-stack developer who's run the ecommerce storefronts most developers only build for. Eight months managing a live Shopify store — 1,000+ products, real customers — before I taught myself the MERN stack.",
+    "Entry-level Full-Stack Developer skilled in React, Node.js, Express and MongoDB, with two deployed MERN projects and 8 months of Shopify e-commerce experience",
   availability: "Open to entry-level roles",
   email: "rashidmubasshir@gmail.com",
   responseTime: "I read every email and reply within a day.",

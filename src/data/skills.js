@@ -1,7 +1,7 @@
 export const skillGroups = [
   {
     category: "Languages",
-    items: ["JavaScript (ES6+)", "Java"],
+    items: ["JavaScript (ES6+)", "Java", "TypeScript"],
   },
   {
     category: "Front-end",
@@ -9,7 +9,7 @@ export const skillGroups = [
   },
   {
     category: "Back-end & Database",
-    items: ["Node.js", "Express", "MongoDB", "Mongoose"],
+    items: ["Node.js", "Express", "MongoDB", "Mongoose", "Mysql"],
   },
   {
     category: "Concepts",
