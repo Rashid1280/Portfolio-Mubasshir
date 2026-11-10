@@ -16,7 +16,7 @@ export function Nav() {
     <header className="sticky top-0 z-40 border-b border-line bg-bg/85 backdrop-blur-sm">
       <nav
         aria-label="Primary"
-        className="mx-auto flex h-14 max-w-shell items-center gap-3 px-5 sm:gap-6 sm:px-8"
+        className="mx-auto flex h-14 max-w-shell items-center gap-2 px-4 sm:gap-6 sm:px-8"
       >
         <a
           href="#"
@@ -27,12 +27,12 @@ export function Nav() {
           <span className="hidden sm:inline">{site.shortName}</span>
         </a>
 
-        <ul className="ml-auto flex items-center gap-4 sm:gap-8">
+        <ul className="ml-auto flex items-center gap-3 sm:gap-8">
           {links.map(({ href, label }) => (
             <li key={href}>
               <a
                 href={href}
-                className="text-sm font-medium text-muted transition-colors duration-150 ease-out hover:text-text sm:text-[0.95rem]"
+                className="text-[0.8125rem] font-medium text-muted transition-colors duration-150 ease-out hover:text-text sm:text-[0.95rem]"
               >
                 {label}
               </a>
@@ -44,7 +44,7 @@ export function Nav() {
           type="button"
           onClick={toggle}
           aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} theme`}
-          className="flex h-8 w-8 items-center justify-center rounded-control
+          className="flex h-8 w-8 shrink-0 items-center justify-center rounded-control
                      border border-line text-muted transition-colors duration-150 ease-out
                      hover:border-accent hover:text-accent"
         >

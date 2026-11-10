@@ -13,6 +13,7 @@
   --muted: 155 163 171;
   --accent: 79 125 255;
   --on-accent: 16 18 20;
+  color-scheme: dark;
 }
 
 :root[data-theme="light"] {
@@ -23,6 +24,7 @@
   --muted: 107 114 128;
   --accent: 79 70 229;
   --on-accent: 255 255 255;
+  color-scheme: light;
 }
 
 @tailwind base;
